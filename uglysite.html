@@ -1,0 +1,196 @@
+<header>
+  <marquee><h1> My Pretty Website </h1></marquee>
+  </header>
+  <div class="PSE-warning">
+    <section class="warning-text">
+      <p class="warning-text">
+      This site may contain flashing images*. If
+      you are prone to seizures, or just don't want to look at flashing colors,
+      please navigate away from this page by closing this tab or with your
+      browser's back button.
+      </p>
+      <p class="warning-text">
+        Otherwise, click anywhere to continue.
+      </p>
+      <p class="warning-text small">
+        *As of writing this warning,
+        only Google Chrome supports the keyframe animation CSS property.
+        To get the full experience, view this site in Google Chrome
+      </p>
+    </section>
+  </div>
+
+  <ul id="posts">
+
+  <li class="A">Title:
+  <strong>The Awesome Stuff</strong>
+  <button class="scary" id="A-delete">Delete</button>
+  </li>
+
+  <li class="B">Title:
+  <strong>The Awesome Stuff</strong>
+  <button class="scary" id="B-delete">Delete</button>
+  </li>
+
+  <li class="C">Title:
+  <strong>The Awesome Stuff</strong>
+  <button class="scary" id="C-delete">Delete</button>
+  </li>
+
+  </ul>
+
+  </body>
+  </html>
+  <style>
+  html, body, button, ul, li, h1, p {
+    margin: none;
+    padding: none;
+    border: none;
+    outline: none;
+
+    background: transparent;
+    font: inherit;
+    text-decoration: inherit;
+    color: inherit;
+  }
+
+  body {
+    background: pink;
+    font-size: 24px;
+    -webkit-animation: bgRainbow 30s infinite;
+    transition: inherit;
+    color: purple;
+    font-family: "Papyrus";
+    margin: 15px;
+  }
+
+  button {
+    background: transparent;
+    border: none;
+    margin: 10px;
+    cursor: pointer;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+
+  p {
+    margin: 30px 50px;
+  }
+
+  strong {
+    color: #F44;
+    text-shadow: 0px 0px 20px #00F;
+    -webkit-animation: rainbow 0.5s infinite;
+    margin: 10px;
+
+  }
+
+  header {
+    /*background-color: #F1C;*/
+    background-image: url(http://www.slopemedia.org/wp-content/uploads/2015/02/cats.jpg);
+    background-size: 100% 100%;
+    border: 5px dashed #0D0;
+    scrollamount: 20;
+    height: 80px;
+    line-height: 25px;
+    text-align: center;
+  }
+
+  header:hover h1 {
+    text-decoration: line-through;
+  }
+
+  h1 {
+
+    font-size: 48px;
+    text-shadow: 0px 0px 10px #f00;
+    font-family: 'Comic Sans MS';
+    color: #FF3;
+    text-decoration: underline overline;
+    -webkit-animation: rainbow 0.5s infinite;
+  }
+
+  .PSE-warning {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    height: 100%;
+    width:100%;
+    font-size: 24px;
+    background: black;
+    color: white;
+    font-family: monospace;
+  }
+
+  .small {
+    font-size: 16px;
+  }
+
+  .scary {
+    font-family: 'Creepster', cursive;
+    background: #AFA;
+    color: #C2C;
+    /*font-size: 200%;*/
+    border: 5px dotted #FF0;
+    border-radius: 50%;
+    padding: 10px;
+    -webkit-animation: rainbow 0.7s infinite;
+  }
+
+  li {
+    transition: font-size 5s;
+    margin: 10px;
+    -webkit-animation: rainbow 0.3s infinite;
+  }
+
+  li:hover {
+    font-size: 200px;
+  }
+
+  header {
+    -webkit-animation: marquee;
+  }
+
+  @-webkit-keyframes rainbow {
+    0% { color: #F00; }
+    14% { color: #FA0; }
+    28% { color: #FF0; }
+    42% { color: #0F0; }
+    56% { color: #06C; }
+    70% { color: #00F; }
+    84% { color: #B0D; }
+    100% { color: #F00; }
+  }
+
+  @-webkit-keyframes bgRainbow {
+    0% { background-color: #F00; }
+    14% { background-color: #FA0; }
+    28% { background-color: #FF0; }
+    42% { background-color: #0F0; }
+    56% { background-color: #06C; }
+    70% { background-color: #00F; }
+    84% { background-color: #B0D; }
+    100% { background-color: #F00; }
+  }
+  </style>
+
+  <script>
+  var buttons = document.querySelectorAll(".scary");
+  document.onclick = function(event) {
+    var clicked = event.target.className;
+    console.log(clicked);
+    if (clicked === "scary"){
+      var id = event.target.id[0];
+      var li = document.querySelector("." + id);
+      li.remove();
+    }
+    else if (clicked === "PSE-warning" || clicked === "warning-text"){
+      document.querySelector(".PSE-warning").remove();
+    }
+  };
+
+  </script>
